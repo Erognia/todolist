@@ -1,5 +1,6 @@
 package fr.icdc.dei.todolist.service.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,5 +29,21 @@ public class TaskServiceImpl implements TaskService {
 	}
 	
 	
+	@Override
+	public Task find(long id) {
+		return taskDao.findOne(id);
+	}
 
+	@Override
+	public boolean isEnded(Task task) {
+		return task.getEndingDate() != null;
+	}
+	
+	@Override
+	public boolean forecastEndingDateIsInIntervalOfDates(Task task, Date beginningIntervalDate, Date endingIntervalDate) {
+		if(beginningIntervalDate.before(task.getForecastDate()) && endingIntervalDate.after(task.getForecastDate()))
+			return true;
+		else
+			return false;
+	}
 }

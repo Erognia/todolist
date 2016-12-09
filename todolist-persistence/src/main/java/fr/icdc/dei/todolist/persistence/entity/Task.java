@@ -30,6 +30,9 @@ public class Task {
 	@Column
 	private Date endingDate;
 	
+	@Column
+	private Date forecastDate;
+	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="id_category")
 	private Category category;
@@ -38,8 +41,6 @@ public class Task {
 	@JoinColumn(name="id_user")
 	private User user;
 
-	@Column
-	private Date forecastDate;
 
 	public String getLabel() {
 		return this.label;
@@ -49,21 +50,21 @@ public class Task {
 		this.label = label;
 	}
 
-	public Date getBeginninDate() {
-		return this.beginningDate;
+	public Date getBeginningDate() {
+		return beginningDate;
 	}
-
+	
 	public void setBeginningDate(Date beginningDate) {
 		this.beginningDate = beginningDate;
 	}
 
+	public Date getEndingDate() {
+		return  this.endingDate;
+	}
+	
 	public void setEndingDate(Date endingDate) {
 		this.endingDate = endingDate;
 		
-	}
-
-	public Date getEndingDate() {
-		return  this.endingDate;
 	}
 
 	public long getId() {
@@ -80,10 +81,6 @@ public class Task {
 
 	public void setUser(User user) {
 		this.user = user;
-	}
-
-	public Date getBeginningDate() {
-		return beginningDate;
 	}
 
 	public Category getCategory() {

@@ -46,7 +46,7 @@ public class TaskTest {
 	@Test
 	public void testTaskHasBeginningDate() {
 		task.setBeginningDate(new Date());
-		assertNotNull(task.getBeginninDate());
+		assertNotNull(task.getBeginningDate());
 	}
 	
 	@Test
@@ -61,7 +61,7 @@ public class TaskTest {
 		task.setBeginningDate(calendar.getTime());
 		calendar.set(ENDING_AND_BEGINNING_YEAR_DATE, ENDING_AND_BEGINNING_MONTH_DATE,5);
 		task.setEndingDate(calendar.getTime());
-		assertTrue(task.getEndingDate().compareTo(task.getBeginninDate()) > 0);
+		assertTrue(task.getEndingDate().compareTo(task.getBeginningDate()) > 0);
 	}
 	
 	@Test
@@ -70,14 +70,13 @@ public class TaskTest {
 		task.setBeginningDate(calendar.getTime());
 		calendar.set(ENDING_AND_BEGINNING_YEAR_DATE, ENDING_AND_BEGINNING_MONTH_DATE,7);
 		task.setForecastDate(calendar.getTime());
-		assertTrue(task.getForecastDate().compareTo(task.getBeginninDate()) > 0);
+		assertTrue(task.getForecastDate().compareTo(task.getBeginningDate()) > 0);
 	}
 	
 	@Test
-	public void testTaskIsBiginning(){
+	public void testTaskIsBeginning(){
 		calendar.set(ENDING_AND_BEGINNING_YEAR_DATE, ENDING_AND_BEGINNING_MONTH_DATE, 1);
 		task.setBeginningDate(calendar.getTime());
-		//assertEquals(task.getBeginninDate(), calendar.getTime());
 		assertTrue(today.getTime().compareTo(task.getBeginningDate()) > 0);
 	}
 	
